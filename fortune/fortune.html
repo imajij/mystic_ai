@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystic AI - Fortune Telling</title>
+    <link rel="stylesheet" href="fortunestyle.css">
+</head>
+<body>
+    <div class="celestial-pattern">
+        <!-- Stars -->
+        <div class="star" style="top: 10%; left: 15%; width: 2px; height: 2px;"></div>
+        <div class="star" style="top: 20%; left: 25%; width: 3px; height: 3px;"></div>
+        <div class="star" style="top: 15%; left: 45%; width: 2px; height: 2px;"></div>
+        <div class="star" style="top: 35%; left: 65%; width: 3px; height: 3px;"></div>
+        <div class="star" style="top: 45%; left: 85%; width: 2px; height: 2px;"></div>
+        <div class="star" style="top: 55%; left: 35%; width: 3px; height: 3px;"></div>
+        
+        <!-- Moons -->
+        <div class="moon" style="top: 15%; right: 10%;"></div>
+        <div class="moon" style="bottom: 20%; left: 5%;"></div>
+        
+        <!-- Planets -->
+        <div class="planet" style="top: 30%; left: 20%;"></div>
+        <div class="planet" style="bottom: 40%; right: 25%;"></div>
+    </div>
+
+    <header class="header">
+        <nav class="nav">
+            <h1>Mystic AI</h1>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../fortune/fortune.html">Fortune Telling</a>
+                <a href="../tarot/tarot.html">Tarot Reading</a>
+                <a href="#about">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="fortune-container">
+        <form class="fortune-form">
+            <h2 class="form-title">Reveal Your Future</h2>
+            
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" required placeholder="Enter your full name">
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="zodiac">Your Zodiac Sign</label>
+                <select id="zodiac" required>
+                    <option value="">Select your zodiac sign</option>
+                    <option value="aries">Aries</option>
+                    <option value="taurus">Taurus</option>
+                    <option value="gemini">Gemini</option>
+                    <option value="cancer">Cancer</option>
+                    <option value="leo">Leo</option>
+                    <option value="virgo">Virgo</option>
+                    <option value="libra">Libra</option>
+                    <option value="scorpio">Scorpio</option>
+                    <option value="sagittarius">Sagittarius</option>
+                    <option value="capricorn">Capricorn</option>
+                    <option value="aquarius">Aquarius</option>
+                    <option value="pisces">Pisces</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="question">Your Question</label>
+                <textarea id="question" rows="4" required placeholder="What would you like to know about your future?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="area">Area of Focus</label>
+                <select id="area" required>
+                    <option value="">Select area of focus</option>
+                    <option value="love">Love & Relationships</option>
+                    <option value="career">Career & Work</option>
+                    <option value="health">Health & Wellness</option>
+                    <option value="wealth">Wealth & Finance</option>
+                    <option value="spiritual">Spiritual Growth</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn">Reveal My Fortune</button>
+        </form>
+
+        <div class="reading-result">
+            <h3>Your Fortune Reading</h3>
+            <div class="reading-content">
+                <!-- Reading content will be populated here -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mystic AI - Fortune Telling & Tarot Reading</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
