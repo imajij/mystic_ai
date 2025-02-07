@@ -14,7 +14,7 @@
                 <a href="../index.html">Home</a>
                 <a href="../fortune/fortune.html">Fortune Telling</a>
                 <a href="tarot.html">Tarot Reading</a>
-                <a href="#about">About</a>
+                
             </div>
         </nav>
     </header>
@@ -37,6 +37,7 @@
         <button class="start-reading">Begin Your Reading</button>
 
         <div class="selected-cards">
+            <h3>Your Selected Cards</h3>
             <!-- Selected cards will appear here -->
         </div>
 
@@ -48,65 +49,6 @@
         </div>
     </main>
 
-    <script>
-        // Generate tarot cards
-        const tarotDeck = document.querySelector('.tarot-deck');
-        const selectedCards = document.querySelector('.selected-cards');
-        const startReadingBtn = document.querySelector('.start-reading');
-        const readingResult = document.querySelector('.reading-result');
-        let selectedCount = 0;
-        const maxCards = 3;
-
-        // Array of tarot card names
-        const tarotNames = [
-            'The Fool', 'The Magician', 'The High Priestess', 'The Empress', 
-            'The Emperor', 'The Hierophant', 'The Lovers', 'The Chariot',
-            'Strength', 'The Hermit', 'Wheel of Fortune', 'Justice'
-        ];
-
-        // Generate cards
-        for(let i = 0; i < 12; i++) {
-            const card = document.createElement('div');
-            card.className = 'tarot-card';
-            card.innerHTML = `
-                <div class="card-face card-back"></div>
-                <div class="card-face card-front">${tarotNames[i]}</div>
-            `;
-            
-            card.addEventListener('click', () => {
-                if(!card.classList.contains('selected') && selectedCount < maxCards) {
-                    card.classList.add('selected');
-                    selectedCount++;
-                    
-                    // Create selected card display
-                    const selectedCard = card.cloneNode(true);
-                    selectedCard.classList.add('selected');
-                    selectedCards.appendChild(selectedCard);
-
-                    if(selectedCount === maxCards) {
-                        startReadingBtn.style.display = 'block';
-                    }
-                }
-            });
-            
-            tarotDeck.appendChild(card);
-        }
-
-        // Reading type selection
-        const readingOptions = document.querySelectorAll('.reading-option');
-        readingOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                readingOptions.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-            });
-        });
-
-        // Start reading button
-        startReadingBtn.addEventListener('click', () => {
-            readingResult.classList.add('active');
-            // Scroll to reading
-            readingResult.scrollIntoView({ behavior: 'smooth' });
-        });
-    </script>
+    <script src="/tarot/tarot.js"></script>
 </body>
 </html>
