@@ -1,5 +1,5 @@
 // Constants
-const API_KEY = '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'; // Replace with your actual API key
+const API_KEY = ''; // Replace with your actual API key
 const API_URL = 'https://api.openai.com/v1/completions'; // Replace with your API endpoint
 
 // DOM Elements
