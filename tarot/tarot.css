@@ -1,145 +1,135 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+    --primary-color: #9b59b6;
+    --secondary-color: #3498db;
+    --bg-dark: #1a1a2e;
+    --text-light: #fff;
+    --glass-bg: rgba(255, 255, 255, 0.1);
 }
 
 body {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    color: #fff;
-    line-height: 1.6;
-}
-
-/* Navigation styles from previous page */
-.header {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 1rem 2rem;
-    position: fixed;
-    width: 100%;
-    z-index: 100;
-    top: 0;
-    left: 0;
-    box-sizing: border-box;
-}
-
-.nav {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav h1 {
-    color: #fff;
-    font-size: 1.5rem;
+    background: linear-gradient(135deg, var(--bg-dark), #2c3e50);
+    color: var(--text-light);
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
     margin: 0;
+    padding: 0;
+    position: relative;
+    overflow-x: hidden;
 }
 
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #9b59b6;
-}
-
-/* Tarot specific styles */
-.tarot-container {
+.kundali-container {
     max-width: 1200px;
-    margin: 100px auto 40px;
-    padding: 2rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-.reading-type {
-    background: rgba(255, 255, 255, 0.1);
+.birth-details {
+    background: var(--glass-bg);
     backdrop-filter: blur(10px);
+    border-radius: 20px;
     padding: 2rem;
-    border-radius: 15px;
     margin-bottom: 2rem;
-    text-align: center;
 }
 
-.reading-type h2 {
-    color: #9b59b6;
-    margin-bottom: 1rem;
+.kundali-form {
+    display: grid;
+    gap: 1.5rem;
 }
 
-.reading-options {
+.form-group {
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.reading-option {
-    padding: 1rem 2rem;
+.form-group input {
+    padding: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.option-card {
+    background: var(--glass-bg);
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
     background: rgba(155, 89, 182, 0.2);
-    border: 2px solid #9b59b6;
+}
+
+.generate-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-light);
+    padding: 1rem 2rem;
+    border: none;
     border-radius: 30px;
     cursor: pointer;
-    transition: all 0.3s;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
 }
 
-.reading-option:hover {
-    background: rgba(155, 89, 182, 0.4);
-    transform: translateY(-2px);
+.generate-btn:hover {
+    transform: scale(1.05);
 }
 
-.reading-option.active {
-    background: #9b59b6;
+.kundali-result {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2rem;
+    display: none;
+}
+
+.kundali-result.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .tarot-deck {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1.5rem;
+    gap: 1rem;
     padding: 2rem;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-    margin: 2rem 0;
 }
 
-/* Update card styling */
 .tarot-card {
-    position: relative;
     aspect-ratio: 1/1.7;
-    background: linear-gradient(45deg, #2c3e50, #3498db);
-    border-radius: 10px;
+    perspective: 1000px;
     cursor: pointer;
-    transition: transform 0.6s ease;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
     transform-style: preserve-3d;
-    box-shadow: 0 0 20px rgba(155, 89, 182, 0.2);
 }
 
-.tarot-card:hover {
-    transform: translateY(-10px) rotateY(20deg);
-    box-shadow: 
-        0 0 30px rgba(155, 89, 182, 0.3),
-        inset 0 0 20px rgba(155, 89, 182, 0.2);
-}
-
-.tarot-card.selected {
+.tarot-card.selected .card-inner {
     transform: rotateY(180deg);
-}
-
-/* Add border pattern */
-.tarot-card::before {
-    content: '';
-    position: absolute;
-    inset: 4px;
-    border: 1px solid rgba(155, 89, 182, 0.3);
-    border-radius: 8px;
 }
 
 .card-face {
@@ -147,116 +137,36 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 8px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
     text-align: center;
 }
 
 .card-back {
-    background: linear-gradient(45deg, #2c3e50, #2980b9);
-    border: 2px solid #9b59b6;
-    position: relative;
-    overflow: hidden;
-    background: url('/api/placeholder/120/200') center/cover;
-    border: 2px solid #9b59b6;
-}
-
-/* Add decorative elements */
-.card-back::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 1px, transparent 1px),
-        radial-gradient(circle at 90% 30%, rgba(255,255,255,0.1) 1px, transparent 1px),
-        radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 1px, transparent 1px),
-        radial-gradient(circle at 70% 70%, rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
-    opacity: 0.6;
-}
-
-.card-back::after {
-    content: '★';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    color: #9b59b6;
-    text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
-}
-
-.tarot-card:hover .card-back::after {
-    animation: starPulse 1.5s infinite;
-}
-
-@keyframes starPulse {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-}
-
-/* Add specific card background styles */
-.card-image {
-    width: 80%;
-    height: 60%;
-    margin: 10px auto;
-    background-size: cover;
-    background-position: center;
-    border-radius: 5px;
-    opacity: 0.8;
-}
-
-/* Past Present Future cards */
-.past-present-future-0 { background-image: url('../assets/cards/major/fool.jpg'); }
-.past-present-future-1 { background-image: url('../assets/cards/major/magician.jpg'); }
-/* Add remaining card backgrounds */
-
-/* Love & Relationships cards */
-.love-relationships-0 { background-image: url('../assets/cards/cups/lovers.jpg'); }
-.love-relationships-1 { background-image: url('../assets/cards/cups/two-cups.jpg'); }
-/* Add remaining card backgrounds */
-
-/* Career Path cards */
-.career-path-0 { background-image: url('../assets/cards/pentacles/emperor.jpg'); }
-.career-path-1 { background-image: url('../assets/cards/pentacles/king-pentacles.jpg'); }
-/* Add remaining card backgrounds */
-
-/* Spiritual Growth cards */
-.spiritual-growth-0 { background-image: url('../assets/cards/major/priestess.jpg'); }
-.spiritual-growth-1 { background-image: url('../assets/cards/major/hermit.jpg'); }
-/* Add remaining card backgrounds */
-
-/* Update card front styling */
-.card-front {
     background: linear-gradient(45deg, #2c3e50, #3498db);
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-.card-front h4 {
-    font-size: 0.9rem;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 0.5rem;
-}
-
-/* Add this if you don't have card images yet */
-[class*="card-image"] {
+.card-front {
     background: linear-gradient(45deg, #9b59b6, #3498db);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: rotateY(180deg);
+    padding: 1rem;
+}
+
+.selected-cards-container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
 }
 
 .selected-cards {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin: 2rem}
+    min-height: 200px;
+    margin: 1rem 0;
+}
