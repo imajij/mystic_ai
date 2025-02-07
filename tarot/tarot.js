@@ -59,6 +59,7 @@ function updateTarotDeck(readingType) {
                 
                 card.classList.add('selected');
                 card.style.transform = 'rotateY(180deg)';
+                card.children[0].remove();
                 
                 const preview = document.createElement('div');
                 preview.className = 'card-preview';
