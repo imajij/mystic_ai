@@ -1,3 +1,13 @@
+:root {
+    --primary-color: #9b59b6;
+    --primary-light: #b369d3;
+    --secondary-color: #3498db;
+    --bg-dark: #0f1129;
+    --text-light: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,52 +16,223 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    color: #fff;
-    line-height: 1.6;
+    background: linear-gradient(135deg, var(--bg-dark), #1a2035);
+    color: var(--text-light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
     min-height: 100vh;
+    line-height: 1.6;
 }
 
+/* Header Styles */
+.header {
+    background: rgb(0, 0, 0);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    transform: translateY(-2px);
+}
+
+/* Main Container */
+.fortune-container {
+    max-width: 800px;
+    margin: 7rem auto 2rem;
+    padding: 0 2rem;
+}
+
+/* Form Styles */
+.fortune-form {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--card-shadow);
+}
+
+.form-title {
+    text-align: center;
+    color: var(--primary-light);
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.2);
+}
+
+/* Button Styles */
+.submit-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-light);
+    padding: 1.2rem 2.5rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(155, 89, 182, 0.4);
+}
+
+/* Reading Result Styles */
+.reading-result {
+    margin-top: 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: none;
+}
+
+.reading-result.active {
+    display: block;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Celestial Pattern */
 .celestial-pattern {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .star {
     position: absolute;
     background: white;
     border-radius: 50%;
-    animation: twinkle 1.5s infinite alternate;
+    animation: twinkle 1.5s infinite ease-in-out;
 }
 
 .moon {
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #ffffff, #a1a1a1);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-    animation: float 15s infinite linear;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
 }
 
 .planet {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at 30% 30%, var(--primary-light), var(--primary-color));
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #9b59b6, #6c3483);
-    box-shadow: 0 0 15px rgba(155, 89, 182, 0.5);
-    animation: orbit 20s infinite linear;
+    box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes twinkle {
-    0% { opacity: 0.3; }
-    100% { opacity: 1; }
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .fortune-container {
+        padding: 0 1rem;
+        margin-top: 9rem;
+    }
+
+    .fortune-form {
+        padding: 1.5rem;
+    }
 }
 
 @keyframes float {
@@ -63,149 +244,6 @@ body {
 @keyframes orbit {
     0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
     100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
-}
-
-.header {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 1rem 2rem;
-    position: fixed;
-    width: 100%;
-    z-index: 100;
-    top: 0;
-    left: 0;
-    box-sizing: border-box;
-}
-
-.nav {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav h1 {
-    color: #fff;
-    font-size: 1.5rem;
-    margin: 0;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #9f7aea;
-}
-
-/* Add responsive styles */
-@media (max-width: 768px) {
-    .nav {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .nav-links {
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-.fortune-container {
-    max-width: 800px;
-    margin: 120px auto 40px;
-    padding: 2rem;
-}
-
-.fortune-form {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
-}
-
-.form-title {
-    text-align: center;
-    color: #9b59b6;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #063ea0;
-    font-size: 1.1rem;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #07043a;
-    font-size: 1rem;
-    transition: all 0.3s;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
-}
-
-.submit-btn {
-    background: linear-gradient(45deg, #9b59b6, #3498db);
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 30px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    width: 100%;
-    transition: transform 0.3s;
-}
-
-.submit-btn:hover {
-    transform: scale(1.02);
-}
-
-.reading-result {
-    margin-top: 2rem;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    display: none;
-}
-
-.reading-result.active {
-    display: block;
-    animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Loading Animation */
@@ -245,11 +283,6 @@ body {
 
 .fortune-reading {
     animation: fadeIn 1s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 footer {

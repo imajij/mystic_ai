@@ -75,20 +75,32 @@ body {
     100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
 }
 
+/* Update the header and nav styles */
 .header {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 1rem;
+    background: rgb(0, 0, 0);
+    backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
+    top: 0;
     z-index: 100;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 .nav {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.nav h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .nav-links {
@@ -97,49 +109,37 @@ body {
 }
 
 .nav-links a {
-    color: #fff;
+    color: var(--text-light);
     text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.3s;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #9b59b6;
+    background: linear-gradient(45deg, #9b59b6, #3498db);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+/* Add responsive styles for nav */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
 }
 
 .hero {
     height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: url('/api/placeholder/1920/1080') center/cover;
-    position: relative;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
-
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     color: #ddd;
