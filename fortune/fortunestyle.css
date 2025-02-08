@@ -110,10 +110,10 @@ body {
 .form-group textarea {
     width: 100%;
     padding: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.938);
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.05);
-    color: var(--text-light);
+    color: rgb(3, 15, 82);
     font-size: 1rem;
 }
 
