@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystic AI - Crystal Ball Gazing</title>
+    <link rel="stylesheet" href="crystal.css">
+</head>
+<body>
+    <div class="celestial-pattern">
+        <!-- Stars -->
+        <div class="star" style="top: 10%; left: 15%;"></div>
+        <div class="star" style="top: 20%; left: 25%;"></div>
+        <div class="star" style="top: 15%; left: 45%;"></div>
+        <!-- Add more stars as needed -->
+        
+        <!-- Moons and Planets -->
+        <div class="moon" style="top: 15%; right: 10%;"></div>
+        <div class="planet" style="bottom: 40%; right: 25%;"></div>
+    </div>
+
+    <header class="header">
+        <nav class="nav">
+            <h1>Mystic AI</h1>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../fortune/fortune.html">Fortune</a>
+                <a href="../kundali/kundali.html">Kundali</a>
+                <a href="crystal.html" class="active">Crystal Ball</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="crystal-container">
+        <section class="crystal-section">
+            <h2>Gaze Into Your Future</h2>
+            <div class="crystal-ball-container">
+                <div class="crystal-ball">
+                    <div class="crystal-glow"></div>
+                    <div class="crystal-reflections"></div>
+                </div>
+            </div>
+
+            <form id="crystalForm" class="crystal-form">
+                <div class="form-group">
+                    <label for="question">Ask the Crystal Ball</label>
+                    <textarea id="question" required 
+                        placeholder="What would you like to know about your future?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Choose an Aspect</label>
+                    <select id="category" required>
+                        <option value="">Select a category</option>
+                        <option value="life">Life Path</option>
+                        <option value="love">Love & Relationships</option>
+                        <option value="career">Career & Success</option>
+                        <option value="spiritual">Spiritual Journey</option>
+                        <option value="health">Health & Wellness</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="gaze-btn">
+                    <span>Gaze Into the Crystal</span>
+                </button>
+            </form>
+        </section>
+
+        <div class="prediction-result">
+            <div class="prediction-content">
+                <!-- Predictions will appear here -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mystic AI - Crystal Ball Gazing</p>
+    </footer>
+    <script src="crystal.js"></script>
+</body>
+</html>
