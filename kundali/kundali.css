@@ -79,7 +79,7 @@ body {
 
 .kundali-container {
     max-width: 1200px;
-    padding: 4rem 2rem 2rem;
+    padding: 8rem 2rem 2rem; /* Increased top padding from 4rem to 8rem */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -501,8 +501,7 @@ body {
     }
 
     .kundali-container {
-        padding: 0 1rem;
-        margin-top: 8rem;
+        padding: 6rem 1rem 2rem; /* Adjusted for mobile */
     }
 
     .birth-details {

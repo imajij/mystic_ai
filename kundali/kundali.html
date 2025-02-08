@@ -5,18 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mystic AI - Kundali Reading</title>
     <link rel="stylesheet" href="kundali.css">
+    <link rel="stylesheet" href="../css/shared.css">
 </head>
 <body>
     <header class="header">
         <nav class="nav">
-            <h1>Mystic AI</h1>
+            <div class="nav-brand">
+                <h1>🔮 Mystic AI</h1>
+                <button class="hamburger" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
             <div class="nav-links">
                 <a href="../index.html">Home</a>
-                <a href="../fortune/fortune.html">Fortune Teller</a>
-                <a href="../kundali/kundali.html">Kundali Maker</a>
-                <a href="../crystalball/crystal.html">Crystal Ball Gazing</a>
+                <a href="../fortune/fortune.html">Fortune</a>
+                <a href="../kundali/kundali.html">Kundali</a>
+                <a href="../crystalball/crystal.html">Crystal Ball</a>
             </div>
         </nav>
+        <div class="nav-overlay"></div>
     </header>
 
     <main class="kundali-container">
@@ -96,6 +105,7 @@
         <div class="planet planet-2" style="bottom: 40%; right: 25%;"></div>
     </div>
 
-    <script src="tarot.js"></script>
+    <script src="kundali.js"></script>
+    <script src="../js/nav.js"></script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mystic AI - Crystal Ball Gazing</title>
     <link rel="stylesheet" href="crystal.css">
+    <link rel="stylesheet" href="../css/shared.css">
 </head>
 <body>
     <div class="celestial-pattern">
@@ -22,14 +22,22 @@
 
     <header class="header">
         <nav class="nav">
-            <h1>Mystic AI</h1>
+            <div class="nav-brand">
+                <h1>Mystic AI</h1>
+                <button class="hamburger" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
             <div class="nav-links">
                 <a href="../index.html">Home</a>
                 <a href="../fortune/fortune.html">Fortune</a>
                 <a href="../kundali/kundali.html">Kundali</a>
-                <a href="crystal.html" class="active">Crystal Ball</a>
+                <a href="../crystalball/crystal.html">Crystal Ball</a>
             </div>
         </nav>
+        <div class="nav-overlay"></div>
     </header>
 
     <main class="crystal-container">
@@ -75,8 +83,9 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Mystic AI - Crystal Ball Gazing</p>
+        <p>&copy; 2025 Mystic AI - Made with Love</p>
     </footer>
     <script src="crystal.js"></script>
+    <script src="../js/nav.js"></script>
 </body>
 </html>

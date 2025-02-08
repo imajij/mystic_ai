@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mystic AI - Fortune Telling</title>
     <link rel="stylesheet" href="fortunestyle.css">
+    <link rel="stylesheet" href="../css/shared.css">
 </head>
 <body>
     <div class="celestial-pattern">
@@ -27,15 +28,22 @@
 
     <header class="header">
         <nav class="nav">
-            <h1>Mystic AI</h1>
+            <div class="nav-brand">
+                <h1>Mystic AI</h1>
+                <button class="hamburger" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
             <div class="nav-links">
                 <a href="../index.html">Home</a>
-                <a href="../fortune/fortune.html">Fortune Telling</a>
-                <a href="../kundali/kundali.html">Kundali Maker</a>
-                <a href="../crystalball/crystal.html">Crystal Ball Gazing</a>
-                
+                <a href="../fortune/fortune.html">Fortune</a>
+                <a href="../kundali/kundali.html">Kundali</a>
+                <a href="../crystalball/crystal.html">Crystal Ball</a>
             </div>
         </nav>
+        <div class="nav-overlay"></div>
     </header>
 
     <main class="fortune-container">
@@ -100,10 +108,11 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Mystic AI - Fortune Telling & Tarot Reading</p>
+        <p>&copy; 2025 Mystic AI - Made with Love</p>
     </footer>
     <script src="fortune.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <script src="../js/nav.js"></script>
 </body>
 </html>

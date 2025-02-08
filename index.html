@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mystic AI - Fortune Telling & Kundali Maker</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/shared.css">
         
     
 </head>
@@ -32,15 +33,22 @@
 
     <header class="header">
         <nav class="nav">
-            <h1>Mystic AI</h1>
+            <div class="nav-brand">
+                <h1>Mystic AI</h1>
+                <button class="hamburger" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
             <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="./fortune/fortune.html">Fortune Telling</a>
-                <a href="./kundali/kundali.html">Kundali Maker</a>
-                <a href="./crystalball/crystal.html">Crystal Ball Gazing</a>
-                <!-- <a href="./about/about.html">About</a> -->
+                <a href="../index.html">Home</a>
+                <a href="../fortune/fortune.html">Fortune</a>
+                <a href="../kundali/kundali.html">Kundali</a>
+                <a href="../crystalball/crystal.html">Crystal Ball</a>
             </div>
         </nav>
+        <div class="nav-overlay"></div>
     </header>
 
     <section class="hero">
@@ -78,8 +86,9 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Mystic AI - Fortune Telling & Tarot Reading</p>
+        <p>&copy; 2025 Mystic AI - Made with Love</p>
     </footer>
     <script src="scripts.js"></script>
+    <script src="/js/nav.js"></script>
 </body>
 </html>
